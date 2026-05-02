@@ -376,6 +376,11 @@
         </div>
 
         <form class="contact__form" id="contactForm" novalidate>
+          <!-- Honeypot: hidden from humans, often filled by bots -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Website (leave blank)</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name" required />

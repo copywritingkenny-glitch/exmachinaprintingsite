@@ -842,6 +842,16 @@ h1,h2,h3,h4,h5 { font-family: 'Space Grotesk', 'Inter', sans-serif; color: var(-
   border-color: #fecaca;
 }
 
+/* Honeypot — visually hidden but still in the DOM for bots to find */
+.hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* =================== footer =================== */
 .footer {
   background: var(--blue-900);

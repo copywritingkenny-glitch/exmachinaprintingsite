@@ -47,38 +47,65 @@
 
   revealTargets.forEach(el => io.observe(el));
 
-  // ---- contact form (graceful fallback — no backend yet) ----
+  // ---- contact form -> POST to /api/contact (Cloudflare Pages Function + Resend) ----
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
-  if (form && note) {
-    form.addEventListener('submit', (e) => {
+
+  const showNote = (text, isError = false) => {
+    if (!note) return;
+    note.hidden = false;
+    note.classList.toggle('is-error', !!isError);
+    note.textContent = text;
+  };
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
-      const name = (data.get('name') || '').toString().trim();
-      const email = (data.get('email') || '').toString().trim();
-      const message = (data.get('message') || '').toString().trim();
+      const payload = {
+        name: (data.get('name') || '').toString().trim(),
+        email: (data.get('email') || '').toString().trim(),
+        type: (data.get('type') || '').toString(),
+        message: (data.get('message') || '').toString().trim(),
+        website: (data.get('website') || '').toString(), // honeypot
+      };
 
-      if (!name || !email || !message) {
-        note.hidden = false;
-        note.classList.add('is-error');
-        note.textContent = 'Please fill out your name, email, and a short message.';
+      if (!payload.name || !payload.email || !payload.message) {
+        showNote('Please fill out your name, email, and a short message.', true);
         return;
       }
 
-      // Build a mailto fallback so the message reaches us until a backend is wired up
-      const type = (data.get('type') || 'Not specified').toString();
-      const subject = encodeURIComponent(`New project inquiry — ${name}`);
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nProject type: ${type}\n\n${message}`
-      );
-      const mail = `mailto:bailey_dougie@yahoo.com?subject=${subject}&body=${body}`;
+      const submitBtn = form.querySelector('button[type=submit]');
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      showNote('Sending your message…');
 
-      note.hidden = false;
-      note.classList.remove('is-error');
-      note.textContent = 'Thanks! Opening your email client to send the message…';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
 
-      window.setTimeout(() => { window.location.href = mail; }, 600);
-      form.reset();
+        const result = await res.json().catch(() => ({}));
+
+        if (res.ok && result.ok) {
+          showNote("Thanks — your message is in. We'll be in touch within 24 hours.");
+          form.reset();
+        } else {
+          showNote(result.error || "Something went wrong. Please email us directly at bailey_dougie@yahoo.com.", true);
+        }
+      } catch (err) {
+        showNote("Couldn't reach the server. Please email us directly at bailey_dougie@yahoo.com.", true);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+      }
     });
   }
 })();
