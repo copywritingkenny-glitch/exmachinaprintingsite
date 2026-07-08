@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,29 +16,8 @@
   <!-- ============== NAV ============== -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#top" class="brand" aria-label="Scratch Works home">
-        <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 100 100" width="40" height="40" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="swGradNav" x1="50" y1="6" x2="50" y2="94" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#e01f1f"/>
-                <stop offset="1" stop-color="#f97316"/>
-              </linearGradient>
-            </defs>
-            <g stroke="url(#swGradNav)" fill="url(#swGradNav)">
-              <path d="M32.3 88 A42 42 0 1 1 67.7 88" fill="none" stroke-width="5" stroke-linecap="round"/>
-              <rect x="40" y="16" width="20" height="14" rx="2.5" stroke="none"/>
-              <path d="M43 30 L57 30 L53 43 L50 48 L47 43 Z" stroke="none"/>
-              <path d="M20 40 H32 M22 49 H31" stroke-width="3.2" stroke-linecap="round"/>
-              <path d="M68 40 H80 M69 49 H78" stroke-width="3.2" stroke-linecap="round"/>
-              <path d="M50 52 L51.38 60.67 L58.49 55.51 L53.33 62.62 L62 64 L53.33 65.38 L58.49 72.49 L51.38 67.33 L50 76 L48.62 67.33 L41.51 72.49 L46.67 65.38 L38 64 L46.67 62.62 L41.51 55.51 L48.62 60.67 Z" stroke="none"/>
-            </g>
-          </svg>
-        </span>
-        <span class="brand__text">
-          <span class="brand__name">Scratch Works</span>
-          <span class="brand__sub">3D PRINTING</span>
-        </span>
+      <a href="#top" class="brand brand--logo" aria-label="Scratch Works home">
+        <img src="images/logo.png" alt="Scratch Works" class="brand__logo" width="123" height="44" />
       </a>
 
       <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
