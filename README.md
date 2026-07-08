@@ -1,6 +1,6 @@
-# Ex Machina Printing — Website
+# Scratch Works — Website
 
-Marketing site for [Ex Machina Printing](https://www.exmachinaprinting.com), a veteran-owned custom 3D printing service in New Philadelphia, OH.
+Marketing site for [Scratch Works](https://www.scratchworks.us), a veteran-owned custom 3D printing service in New Philadelphia, OH.
 
 ## Stack
 

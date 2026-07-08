@@ -2,7 +2,7 @@
 // Receives the contact form, validates, and sends an email via Resend.
 
 const TO_EMAIL = "bailey_dougie@yahoo.com";
-const FROM_EMAIL = "Ex Machina Printing <forms@exmachinaprinting.com>";
+const FROM_EMAIL = "Scratch Works <forms@scratchworks.us>";
 
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -48,7 +48,7 @@ export async function onRequestPost({ request, env }) {
 
   const subject = `New project inquiry — ${name}`;
   const text =
-    `New inquiry from the Ex Machina Printing website\n\n` +
+    `New inquiry from the Scratch Works website\n\n` +
     `Name: ${name}\n` +
     `Email: ${email}\n` +
     `Project type: ${type}\n\n` +
@@ -57,7 +57,7 @@ export async function onRequestPost({ request, env }) {
   const html = `
     <div style="font-family:-apple-system,Segoe UI,sans-serif;max-width:560px;margin:0 auto;color:#0d1b2a;">
       <h2 style="color:#0a2540;margin:0 0 16px;">New project inquiry</h2>
-      <p style="color:#5a6a7a;margin:0 0 24px;">Submitted via the Ex Machina Printing website.</p>
+      <p style="color:#5a6a7a;margin:0 0 24px;">Submitted via the Scratch Works website.</p>
       <table style="width:100%;border-collapse:collapse;font-size:15px;">
         <tr><td style="padding:8px 0;color:#5a6a7a;width:140px;">Name</td><td style="padding:8px 0;"><strong>${escapeHtml(name)}</strong></td></tr>
         <tr><td style="padding:8px 0;color:#5a6a7a;">Email</td><td style="padding:8px 0;"><a href="mailto:${escapeHtml(email)}" style="color:#1751a8;">${escapeHtml(email)}</a></td></tr>

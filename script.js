@@ -1,4 +1,4 @@
-/* Ex Machina Printing — small UI helpers */
+/* Scratch Works — small UI helpers */
 
 (() => {
   // ---- year in footer ----
