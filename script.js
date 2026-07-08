@@ -96,10 +96,10 @@
           showNote("Thanks — your message is in. We'll be in touch within 24 hours.");
           form.reset();
         } else {
-          showNote(result.error || "Something went wrong. Please email us directly at bailey_dougie@yahoo.com.", true);
+          showNote(result.error || "Something went wrong. Please email us directly at doug@scratchworks.us.", true);
         }
       } catch (err) {
-        showNote("Couldn't reach the server. Please email us directly at bailey_dougie@yahoo.com.", true);
+        showNote("Couldn't reach the server. Please email us directly at doug@scratchworks.us.", true);
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

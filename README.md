@@ -29,4 +29,4 @@ Hosted on **Cloudflare Pages**. Every push to `main` auto-deploys to production.
 
 ## Contact form
 
-The form currently uses a `mailto:` fallback (opens the visitor's email client to send to `bailey_dougie@yahoo.com`). To switch to backend-handled submissions, wire a Cloudflare Pages Function or a service like Resend / Web3Forms.
+The form currently uses a `mailto:` fallback (opens the visitor's email client to send to `doug@scratchworks.us`). To switch to backend-handled submissions, wire a Cloudflare Pages Function or a service like Resend / Web3Forms.

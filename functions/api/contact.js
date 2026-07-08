@@ -1,7 +1,7 @@
 // Cloudflare Pages Function — POST /api/contact
 // Receives the contact form, validates, and sends an email via Resend.
 
-const TO_EMAIL = "bailey_dougie@yahoo.com";
+const TO_EMAIL = "doug@scratchworks.us";
 const FROM_EMAIL = "Scratch Works <forms@scratchworks.us>";
 
 const json = (data, status = 200) =>
