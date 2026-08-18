@@ -942,9 +942,6 @@ h1,h2,h3,h4,h5 { font-family: var(--display); color: var(--ink); margin: 0; line
   font-size: 14px;
   max-width: 320px;
 }
-.brand--footer .brand__name { color: #fff; }
-.brand--footer .brand__sub { color: var(--orange-400); }
-
 .footer__cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

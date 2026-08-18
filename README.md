@@ -29,4 +29,4 @@ Hosted on **Cloudflare Pages**. Every push to `main` auto-deploys to production.
 
 ## Contact form
 
-The form currently uses a `mailto:` fallback (opens the visitor's email client to send to `doug@scratchworks.us`). To switch to backend-handled submissions, wire a Cloudflare Pages Function or a service like Resend / Web3Forms.
+The form posts to a Cloudflare Pages Function (`functions/api/contact.js`) that sends the inquiry to `sales@scratchworks.us` via Resend. Requires the `RESEND_API_KEY` environment variable to be set in the Cloudflare Pages project settings.

@@ -1,7 +1,7 @@
 // Cloudflare Pages Function — POST /api/contact
 // Receives the contact form, validates, and sends an email via Resend.
 
-const TO_EMAIL = "doug@scratchworks.us";
+const TO_EMAIL = "sales@scratchworks.us";
 const FROM_EMAIL = "Scratch Works <forms@scratchworks.us>";
 
 const json = (data, status = 200) =>
@@ -95,7 +95,7 @@ export async function onRequestPost({ request, env }) {
 }
 
 // Block other methods cleanly.
-export const onRequest = async ({ request }) => {
-  if (request.method === "POST") return onRequestPost(arguments[0]);
+export const onRequest = async (context) => {
+  if (context.request.method === "POST") return onRequestPost(context);
   return json({ ok: false, error: "Method not allowed." }, 405);
 };
